@@ -22,18 +22,20 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: path.resolve(__dirname, "src/assets/css/style-ts"),
-        use: extractCSS.extract(["css-loader"])
+        use:["css-hot-loader"].concat(
+          extractCSS.extract(["css-loader"])
+        )
       },
       {
         test: /\.css$/,
         include: path.resolve(__dirname, "src/assets/css/style-ts"),
-        use: extractCSSTS.extract({
+        use: ["css-hot-loader"].concat(extractCSSTS.extract({
           loader: "typings-for-css-modules-loader",
           options: {
             modules: true,
             namedExport: true
           }
-        })
+        }))
       },
       {
         test: /\.tsx?$/,
@@ -43,7 +45,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower)/,
-        use: "babel-loader"
+        use: ["react-hot-loader/webpack","babel-loader"]
       }
     ]
   },
@@ -51,6 +53,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(path.resolve(__dirname, "src"), "index.html")
     }),
+    new webpack.NamedModulesPlugin(),    
     new webpack.WatchIgnorePlugin([/css\.d\.ts$/]),
     extractCSS,
     extractCSSTS
