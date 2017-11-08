@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "babel-cli": "babel ./src/js/app.js --out-file ./dist/app.bundle.js",
-    "start": "webpack-dev-server --progress --colors --quiet --inline --hot",
-    "build": "webpack"
+    "dev": "webpack-dev-server --open --config ./webpack/webpack.config.js --env.WEBPACK_ENV=dev",
+    "build": "webpack --config ./webpack/webpack.config.js --env.WEBPACK_ENV=prod"
   },
   "keywords": [],
   "author": "Lorenzo Franceschini",
@@ -16,18 +16,25 @@
     "@babel/core": "^7.0.0-beta.31",
     "@babel/preset-env": "^7.0.0-beta.31",
     "@babel/preset-react": "^7.0.0-beta.31",
-    "awesome-typescript-loader": "^3.3.0",
     "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "compression-webpack-plugin": "^1.0.1",
     "css-hot-loader": "^1.3.2",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
+    "fork-ts-checker-webpack-plugin": "^0.2.8",
+    "happypack": "^4.0.0",
     "html-webpack-plugin": "^2.30.1",
+    "merge-files-webpack-plugin": "^1.1.2",
+    "merge-webpack-plugin": "^0.1.1",
     "react-hot-loader": "^3.1.1",
     "style-loader": "^0.19.0",
+    "ts-loader": "^3.1.1",
     "typescript": "^2.6.1",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "react": "^16.0.0",
