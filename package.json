@@ -25,8 +25,6 @@
     "fork-ts-checker-webpack-plugin": "^0.2.8",
     "happypack": "^4.0.0",
     "html-webpack-plugin": "^2.30.1",
-    "merge-files-webpack-plugin": "^1.1.2",
-    "merge-webpack-plugin": "^0.1.1",
     "react-hot-loader": "^3.1.1",
     "style-loader": "^0.19.0",
     "ts-loader": "^3.1.1",
